@@ -1,9 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+  <div class="container">
+    <!-- Navbar -->
+    <header>
+      <a href="#" class="logo">Dev.</a>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <main>
+      <section class="hero">
+        <h1>Hi, I'm <span>Alex</span>.<br>I build clean web experiences.</h1>
+        <p>I'm a developer focusing on front-end interfaces, clean database architecture, and performance optimization.</p>
+        <div>
+          <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="grid">
+          
+          <div class="card">
+            <h3>Project One</h3>
+            <p>A data visualization dashboard built to track real-time analytics. Optimized for speed and responsiveness.</p>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+
+          <div class="card">
+            <h3>Project Two</h3>
+            <p>A custom interface designed for seamless content management, featuring smooth UI transitions.</p>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Looking for a new collaborator or just want to say hi?</p>
+        <a href="mailto:your.email@example.com" class="btn">Say Hello</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Dev. Built with clean CSS.</p>
+    </footer>
+  </div>
 
 </body>
 </html>
