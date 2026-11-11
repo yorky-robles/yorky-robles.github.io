@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yorky Robles</title>
+  <title>Yorky Robles | UI/UX & Interactive Engineering</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <div class="container">
     <!-- Navbar -->
     <header>
-      <a href="#" class="logo">YR</a>
+      <a href="#" class="logo">
+        <span class="triforce-icon">▲</span> Yorky Robles
+      </a>
       <nav>
-        <a href="#projects">Projects</a>
+        <a href="#projects">Quests</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -22,48 +28,68 @@
     <main>
       <section class="hero">
         <div class="hero-content">
-          <h1>Hi, I'm <span>Yorky</span>.<br>Let data tell the story!</h1>
-          <p>I am a data analyst focused on turning complex datasets into clear, actionable insights. I specialize in querying databases, building intuitive data models, and uncovering trends that help drive strategic decisions.</p>
-          <div>
-            <a href="#contact" class="btn">Get In Touch</a>
+          <div class="status-badge">
+            <span class="heart-icon">♥♥♥</span> Ready for New Quests
+          </div>
+          <h1>Crafting pixel-perfect <span class="highlight">interfaces</span> with a splash of magic.</h1>
+          <p>I’m Yorky—a UI/UX designer and frontend tinkerer with a bright, direct approach to crafting intuitive digital experiences. I bring designs to life through clean interaction logic, thoughtful layouts, and cozy, immersive aesthetics.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">Explore Quests</a>
+            <a href="#contact" class="btn btn-secondary">Send a Message</a>
           </div>
         </div>
         
         <div class="hero-image">
-          <img src="css/profile.jpeg" alt="Yorky Robles - Data Analyst Profile Picture">
+          <div class="avatar-frame">
+            <img src="css/profile.jpeg" alt="Yorky Robles - UI/UX Designer Profile Picture">
+          </div>
         </div>
       </section>
 
-      <!-- Projects -->
+      <!-- Projects / Quests -->
       <section id="projects">
-        <h2 class="section-title">Selected Projects</h2>
+        <div class="section-header">
+          <h2 class="section-title">Active Quests</h2>
+          <p class="section-subtitle">Selected UI/UX designs and frontend experiments.</p>
+        </div>
+
         <div class="grid">
           
           <div class="card">
-            <h3>Project One</h3>
-            <p>A data visualization dashboard built to track real-time analytics. Optimized for speed and responsiveness.</p>
-            <a href="#" class="project-link">View Project →</a>
+            <div class="card-tag">Interactive Audio UI</div>
+            <h3>Ocarina of Time Song Player</h3>
+            <p>An interactive, web-based song note player that lets users map keyboard controls to recreate classic music scores directly in the browser.</p>
+            <a href="#" class="project-link">Play Demo <span class="arrow">→</span></a>
           </div>
 
           <div class="card">
-            <h3>Project Two</h3>
-            <p>A custom interface designed for seamless content management, featuring smooth UI transitions.</p>
-            <a href="#" class="project-link">View Project →</a>
+            <div class="card-tag">E-Commerce & Layout</div>
+            <h3>Zelda Lore & Gear Vault</h3>
+            <p>A responsive Figma-to-code design prototype celebrating game lore, item cataloging, and clean accessory layout systems.</p>
+            <a href="#" class="project-link">Inspect Design <span class="arrow">→</span></a>
           </div>
 
         </div>
+      </section>
+
+      <!-- Quick About -->
+      <section id="about" class="about-box">
+        <h3>It's dangerous to design alone!</h3>
+        <p>I bridge the gap between creative visual design and frontend implementation. Whether it's mapping out seamless component systems, tweaking interactions, or designing cozy user journeys, I build products that feel effortless and bright.</p>
       </section>
 
       <!-- Contact -->
       <section id="contact">
-        <h2 class="section-title">Let's Connect</h2>
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Looking for a new collaborator or just want to say hi?</p>
-        <a href="mailto:your.email@example.com" class="btn">Say Hello</a>
+        <div class="contact-card">
+          <h2 class="section-title">Let's Connect</h2>
+          <p>Got a quest, a project idea, or just want to swap game lore?</p>
+          <a href="mailto:your.email@example.com" class="btn btn-primary">Say Hello ✉</a>
+        </div>
       </section>
     </main>
 
     <footer>
-      <p>&copy; 2026 Dev. Built with clean CSS.</p>
+      <p>&copy; 2026 Yorky Robles. Built with clean CSS & Hylian spirit.</p>
     </footer>
   </div>
 
