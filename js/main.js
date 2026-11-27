@@ -4,16 +4,13 @@ const sections = document.querySelectorAll('.portfolio-section');
 const navLinks = document.querySelectorAll('nav a');
 const reveals = document.querySelectorAll('.reveal');
 
-// Reveal elements smoothly as they enter the viewport
+// Replay reveal animations as elements enter and leave the viewport
 if (prefersReducedMotion) {
   reveals.forEach((el) => el.classList.add('is-visible'));
 } else {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
+      entry.target.classList.toggle('is-visible', entry.isIntersecting);
     });
   }, { threshold: 0.15 });
 
