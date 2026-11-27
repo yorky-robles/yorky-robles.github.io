@@ -1,148 +1,487 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yorky Robles | UI/UX & Interactive Engineering</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+/* ==========================================================================
+1. Design Tokens & Setup (Zelda / Cozy Minimalist Theme)
+   ========================================================================== */
+:root {
+  --bg-color: #0f1412;        /* Deep mossy slate black */
+  --card-bg: #18221e;        /* Dark woodland slate for cards */
+  --card-border: #2a3a33;    /* Subtle forest border */
+  --text-main: #f4efe6;      /* Warm parchment white */
+  --text-muted: #a3b2a8;     /* Soft sage gray for secondary text */
+  --accent-gold: #e6b84c;    /* Hylian triforce gold */
+  --accent-green: #4ade80;   /* Bright stamina leaf green */
+  --accent-gold-glow: rgba(230, 184, 76, 0.15);
+  
+  --font-heading: 'Cinzel', serif, Georgia;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --gap: 2rem;
+}
 
-  <!-- Sticky Navigation -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#intro" class="logo">
-        <span class="triforce-icon">▲</span> Yorky Robles
-      </a>
-      <nav>
-        <a href="#intro">01. Intro</a>
-        <a href="#quests">02. Quests</a>
-        <a href="#tavern">03. Lore & Contact</a>
-      </nav>
-    </div>
-  </header>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <main>
-    <!-- =====================================================================
-         SECTION 1: THE HERO (INTRO)
-         ===================================================================== -->
-    <section id="intro" class="portfolio-section hero-section">
-      <div class="container hero">
-        <div class="hero-content reveal">
-          <div class="status-badge">
-            <span class="heart-icon">♥♥♥</span> Ready for New Quests
-          </div>
-          <h1>Crafting pixel-perfect <span class="highlight">interfaces</span> with a splash of magic.</h1>
-          <p>I’m Yorky—a UI/UX designer and frontend tinkerer with a bright, direct approach to crafting intuitive digital experiences. I bring designs to life through clean interaction logic, thoughtful layouts, and cozy, immersive aesthetics.</p>
-          <div class="hero-actions">
-            <a href="#quests" class="btn btn-primary">Explore Quests</a>
-            <a href="#tavern" class="btn btn-secondary">Send a Message</a>
-          </div>
-        </div>
-        
-        <div class="hero-image reveal">
-          <div class="avatar-frame">
-            <img src="css/profile.jpeg" alt="Yorky Robles - UI/UX Designer Profile Picture">
-          </div>
-        </div>
-      </div>
-    </section>
+html {
+  scroll-behavior: smooth;
+}
 
-    <!-- TRANSITION SHOT 1: Forest Clearing / Lost Woods Vibe -->
-    <div class="scene-transition scene-woods" aria-hidden="true">
-      <div class="scene-overlay"></div>
-      <div class="scene-caption">
-        <span class="rune-divider">✦ ─── ▲ ─── ✦</span>
-        <p>Entering the Quest Log</p>
-      </div>
-    </div>
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  background-image: radial-gradient(rgba(230, 184, 76, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  overflow-x: hidden;
+}
 
-    <!-- =====================================================================
-         SECTION 2: ACTIVE QUESTS (PROJECTS)
-         ===================================================================== -->
-    <section id="quests" class="portfolio-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">Chapter II</span>
-          <h2 class="section-title">Active Quests</h2>
-          <p class="section-subtitle">Selected UI/UX designs and frontend experiments.</p>
-        </div>
+/* ==========================================================================
+2. Layout & Sticky Header
+   ========================================================================== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
 
-        <div class="grid">
-          <div class="card reveal">
-            <div class="card-tag">Interactive Audio UI</div>
-            <h3>Ocarina of Time Song Player</h3>
-            <p>An interactive, web-based song note player that lets users map keyboard controls to recreate classic music scores directly in the browser.</p>
-            <a href="#" class="project-link">Play Demo <span class="arrow">→</span></a>
-          </div>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(15, 20, 18, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(42, 58, 51, 0.6);
+}
 
-          <div class="card reveal">
-            <div class="card-tag">E-Commerce & Layout</div>
-            <h3>Zelda Lore & Gear Vault</h3>
-            <p>A responsive Figma-to-code design prototype celebrating game lore, item cataloging, and clean accessory layout systems.</p>
-            <a href="#" class="project-link">Inspect Design <span class="arrow">→</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
 
-    <!-- TRANSITION SHOT 2: Campfire / Save Point Vibe -->
-    <div class="scene-transition scene-campfire" aria-hidden="true">
-      <div class="scene-overlay"></div>
-      <div class="scene-caption">
-        <span class="rune-divider">✦ ─── ◆ ─── ✦</span>
-        <p>Rest by the Hearth</p>
-      </div>
-    </div>
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--accent-gold);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
-    <!-- =====================================================================
-         SECTION 3: LORE & TAVERN (ABOUT + CONTACT)
-         ===================================================================== -->
-    <section id="tavern" class="portfolio-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">Chapter III</span>
-          <h2 class="section-title">The Designer Behind the Screen</h2>
-          <p class="section-subtitle">A quick breather before our next collaboration.</p>
-        </div>
+.triforce-icon {
+  font-size: 0.8rem;
+  color: var(--accent-gold);
+}
 
-        <div class="tavern-grid">
-          <div class="about-box reveal">
-            <h3>It's dangerous to design alone!</h3>
-            <p>I bridge the gap between creative visual design and frontend implementation. Whether it's mapping out seamless component systems, tweaking interactions, or designing cozy user journeys, I build products that feel effortless and bright.</p>
-          </div>
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 1.8rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
 
-          <div class="contact-card reveal">
-            <h3>Let's Connect</h3>
-            <p>Got a quest, a project idea, or just want to swap game lore?</p>
-            <a href="mailto:your.email@example.com" class="btn btn-primary">Say Hello ✉</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+nav a:hover {
+  color: var(--accent-gold);
+}
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Yorky Robles. Built with clean CSS & Hylian spirit.</p>
-    </div>
-  </footer>
+/* Three Distinct Section Pacing */
+.portfolio-section {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 0;
+}
 
-  <!-- Lightweight Scroll Reveal Script -->
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    }, { threshold: 0.15 });
+/* ==========================================================================
+3. Section 1: Hero Section
+   ========================================================================== */
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-  </script>
+.hero-content {
+  flex: 1.2;
+}
 
-</body>
-</html>
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--accent-gold-glow);
+  color: var(--accent-gold);
+  border: 1px solid rgba(230, 184, 76, 0.3);
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.heart-icon {
+  color: #ef4444;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+.hero h1 .highlight {
+  color: var(--accent-gold);
+  position: relative;
+}
+
+.hero p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-image {
+  flex: 0.9;
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-frame {
+  position: relative;
+  padding: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-gold), transparent, var(--card-border));
+}
+
+.hero-image img {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  border: 4px solid var(--bg-color);
+}
+
+/* ==========================================================================
+4. Transition Shots (Atmospheric Scene Dividers)
+   ========================================================================== */
+.scene-transition {
+  position: relative;
+  width: 100%;
+  height: 36vh;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Transition 1: Emerald Forest Mist (Replace gradient with url('../img/woods-shot.png') anytime!) */
+.scene-woods {
+  background-image: 
+    radial-gradient(circle at 30% 50%, rgba(74, 222, 128, 0.14), transparent 55%),
+    radial-gradient(circle at 75% 40%, rgba(230, 184, 76, 0.10), transparent 50%),
+    linear-gradient(180deg, #0b100e 0%, #14211b 50%, #0b100e 100%);
+}
+
+/* Transition 2: Warm Campfire Glow (Replace gradient with url('../img/campfire-shot.png') anytime!) */
+.scene-campfire {
+  background-image: 
+    radial-gradient(circle at 50% 60%, rgba(230, 184, 76, 0.18), transparent 55%),
+    radial-gradient(circle at 50% 75%, rgba(239, 68, 68, 0.10), transparent 45%),
+    linear-gradient(180deg, #0b100e 0%, #1c1a14 50%, #0b100e 100%);
+}
+
+.scene-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--bg-color) 0%,
+    transparent 25%,
+    transparent 75%,
+    var(--bg-color) 100%
+  );
+  pointer-events: none;
+}
+
+.scene-caption {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.rune-divider {
+  display: block;
+  color: var(--accent-gold);
+  font-size: 0.9rem;
+  letter-spacing: 0.25rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.85;
+}
+
+.scene-caption p {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+5. Section 2: Projects & Cards
+   ========================================================================== */
+.section-header {
+  margin-bottom: 2.5rem;
+}
+
+.section-eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-gold);
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--gap);
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.card-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-green);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-main);
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.8rem;
+  flex-grow: 1;
+}
+
+/* ==========================================================================
+6. Section 3: Lore & Tavern (About + Contact)
+   ========================================================================== */
+.tavern-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--gap);
+  align-items: stretch;
+}
+
+.about-box {
+  background: linear-gradient(180deg, var(--card-bg), var(--bg-color));
+  border: 1px dashed var(--card-border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-box h3 {
+  font-family: var(--font-heading);
+  color: var(--accent-gold);
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+}
+
+.about-box p {
+  color: var(--text-muted);
+}
+
+.contact-card {
+  text-align: center;
+  background-color: var(--card-bg);
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-main);
+}
+
+.contact-card p {
+  color: var(--text-muted);
+  margin-bottom: 1.6rem;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+7. Buttons, Links, Scroll Reveal & Footer
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent-gold);
+  color: #000;
+}
+
+.btn-primary:hover {
+  background-color: #f5c85c;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--card-border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.project-link {
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.project-link .arrow {
+  transition: transform 0.2s ease;
+}
+
+.project-link:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+footer {
+  text-align: center;
+  padding: 3rem 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--card-border);
+}
+
+/* ==========================================================================
+8. Responsive Adjustments
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero p {
+    margin: 0 auto 2rem auto;
+  }
+  
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .tavern-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Disable fixed attachment on mobile Safari for smooth scrolling */
+  .scene-transition {
+    background-attachment: scroll;
+    height: 28vh;
+  }
+
+  nav a {
+    margin-left: 1rem;
+    font-size: 0.85rem;
+  }
+}
