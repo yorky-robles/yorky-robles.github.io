@@ -88,7 +88,8 @@ nav a {
   transition: color 0.2s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.is-active {
   color: var(--accent-gold);
 }
 
@@ -182,9 +183,10 @@ nav a:hover {
 }
 
 /* ==========================================================================
-4. Transition Shots (Atmospheric Scene Dividers)
+4. Transition Shots (JS Scroll-Driven Scene Dividers)
    ========================================================================== */
 .scene-transition {
+  --scene-progress: 0.5;
   position: relative;
   width: 100%;
   height: 36vh;
@@ -195,12 +197,11 @@ nav a:hover {
   overflow: hidden;
   border-top: 1px solid var(--card-border);
   border-bottom: 1px solid var(--card-border);
-  background-attachment: fixed;
   background-position: center;
   background-size: cover;
 }
 
-/* Transition 1: Emerald Forest Mist (Replace gradient with url('../img/woods-shot.png') anytime!) */
+/* Transition 1: Emerald Forest Mist */
 .scene-woods {
   background-image: 
     radial-gradient(circle at 30% 50%, rgba(74, 222, 128, 0.14), transparent 55%),
@@ -208,7 +209,7 @@ nav a:hover {
     linear-gradient(180deg, #0b100e 0%, #14211b 50%, #0b100e 100%);
 }
 
-/* Transition 2: Warm Campfire Glow (Replace gradient with url('../img/campfire-shot.png') anytime!) */
+/* Transition 2: Warm Campfire Glow */
 .scene-campfire {
   background-image: 
     radial-gradient(circle at 50% 60%, rgba(230, 184, 76, 0.18), transparent 55%),
@@ -233,6 +234,9 @@ nav a:hover {
   position: relative;
   z-index: 2;
   text-align: center;
+  opacity: calc(0.35 + var(--scene-progress) * 0.65);
+  transform: translateY(calc((0.5 - var(--scene-progress)) * 28px));
+  transition: transform 0.08s linear, opacity 0.12s linear;
 }
 
 .rune-divider {
@@ -474,9 +478,7 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  /* Disable fixed attachment on mobile Safari for smooth scrolling */
   .scene-transition {
-    background-attachment: scroll;
     height: 28vh;
   }
 
